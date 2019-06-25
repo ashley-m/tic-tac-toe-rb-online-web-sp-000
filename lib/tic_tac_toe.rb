@@ -58,6 +58,14 @@ def play(board)
   elsif draw?(board)
     puts "Cat's Game!"
   end
+# =======
+#     if won?(board)
+#       puts "Congratulations #{winner(board)}!"
+#     elsif draw?(board)
+#       puts "Cat's Game!"
+#     end
+#   end
+# >>>>>>> be03c535ce63268f99546efc68b8e4b1126834ef
 end
 
 def turn_count(board)
@@ -91,12 +99,24 @@ def won?(board)
   WIN_COMBINATIONS.any? do |wins|
     if wins.all? do |space| board[space]=="X" end||wins.all? do |space| board[space]=="O" end
       return wins
+# =======
+#     if((wins.all? do |space| board[space]=="X" end)||(wins.all? do |space| board[space]=="O" end))
+#       return wins
+#     else return false
+# >>>>>>> be03c535ce63268f99546efc68b8e4b1126834ef
     end
   end
 end
 
 def draw?(board)
   full?(board)&&!won?(board)
+# =======
+#   if full?(board)&&!(won?(board).is_a?(Array))
+#     return true
+#   elsif won?(board).is_a?(Array)
+#     return false
+#   end
+# >>>>>>> be03c535ce63268f99546efc68b8e4b1126834ef
 end
 
 def over?(board)
@@ -111,4 +131,7 @@ def winner(board)
   if(won?(board))
     return board[won?(board)[0]]
   end
+# =======
+#     return board[won?(board)[0]]
+# >>>>>>> be03c535ce63268f99546efc68b8e4b1126834ef
 end
